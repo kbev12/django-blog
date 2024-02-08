@@ -1,9 +1,10 @@
 # polling/urls.py
 
-from django.urls import path
+from django.urls import path, include 
 from polling.views import list_view, detail_view
 
 urlpatterns = [
+    path('', include('blogging.urls')),
     path('', list_view, name="poll_index"),
     path('polls/<int:poll_id>/', detail_view, name="poll_detail"),
 ]
